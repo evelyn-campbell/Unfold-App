@@ -10,14 +10,13 @@
       <form action="" method="POST">
         <div>
           {% csrf_token %}
-          <textarea name="text" rows="8" cols="80"></textarea><br>
+          <textarea name="text" rows="8" cols="80"></textarea><br />
           <button type="button" onclick="toggleForm()">Mood</button>
           <div class="mood-popup" id="myForm">
             <h5>test</h5>
           </div>
-          </div>
-          <button type="submit">Post</button>
         </div>
+        <button type="submit">Post</button>
       </form>
       <form action="/profile/">
         <button type="submit">MY PROFILE</button>
@@ -30,13 +29,12 @@
 </html>
 
 <script>
-function toggleForm() {
-   var form = document.getElementById("myForm");
+  function toggleForm() {
+    var form = document.getElementById("myForm");
     if (form.style.display === "block") {
-        form.style.display = "none";
-    } 
-    else {
-        form.style.display = "block";
+      form.style.display = "none";
+    } else {
+      form.style.display = "block";
     }
-}
+  }
 </script>
