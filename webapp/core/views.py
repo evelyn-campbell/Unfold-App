@@ -10,7 +10,21 @@ def home(request):
     return render(request, 'core_templates/home.html')
 
 def login(request):
-    return render(request, 'core_templates/login.html')
+    
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'Invalid credentials')
+            return redirect('login')
+    else:
+        return render(request, 'core_templates/login.html')
 
 def signup(request):
     if request.method == 'POST':

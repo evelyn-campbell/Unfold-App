@@ -9,6 +9,11 @@
     <div class="main">
       <h1>INSERT WEBSITE NAME HERE</h1>
       <div class="login">
+        <div>
+          {% for message in messages%}
+          <h4>{{message}}</h4>
+          {% endfor %}
+        </div>
         <form action="" method="POST">
           {% csrf_token %}
           <h2>Login</h2>
