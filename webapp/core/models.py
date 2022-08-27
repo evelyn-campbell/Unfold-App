@@ -1,3 +1,4 @@
+import profile
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -8,7 +9,7 @@ class Profile(models.Model):
     account_id = models.IntegerField()
     
     # profile info
-    avatar = models.ImageField(upload_to=None, default='default.png')
+    avatar = models.ImageField(upload_to='profile_pictures', default='default.jpg')
     private = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
