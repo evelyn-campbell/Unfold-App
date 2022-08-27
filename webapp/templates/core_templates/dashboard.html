@@ -7,14 +7,34 @@
     <div class="main">
       <h1>DASHBAORD</h1>
       <h2>we are gonna win technova</h2>
-      <div class="signup">
-        <form action="/profile/">
-          <button type="submit">MY PROFILE</button>
-        </form>
-        <form action="/logout/">
-          <button type="submit">Logout</button>
-        </form>
-      </div>
+      <form action="" method="POST">
+        <div>
+          {% csrf_token %}
+          <textarea name="text" rows="8" cols="80"></textarea>
+          <button type="button" onclick="openForm()">Mood</button>
+          <div class="mood-popup" id="myForm">
+            <button type="button" onclick="closeForm()">X</button>
+          </div>
+          </div>
+          <button type="submit">Post</button>
+        </div>
+      </form>
+      <form action="/profile/">
+        <button type="submit">MY PROFILE</button>
+      </form>
+      <form action="/logout/">
+        <button type="submit">Logout</button>
+      </form>
     </div>
   </body>
 </html>
+
+<script>
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+  </script>
