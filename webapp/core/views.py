@@ -80,3 +80,8 @@ def edit_profile(request):
 @login_required(login_url='login')
 def dashboard(request):
     return render(request, 'core_templates/dashboard.html')
+
+@login_required(login_url='login')
+def groups(request):
+    return render(request, 'core_templates/groups.html')
+

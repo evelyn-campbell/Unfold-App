@@ -3,14 +3,26 @@ from . import views
 
 # add other paths here in a similar fashion
 urlpatterns = [
+    # home/index page
     path('', views.home, name='home'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+
+    # authentication paths
     path('login/', views.login, name='login'),
     path('signup/', views.signup, name='signup'),
     path('logout/', views.logout, name='logout'),
+
+    # profile paths
     path('profile/', views.profile, name='profile'),
     path('profile/edit/', views.edit_profile, name='edit_profile'),
-    path('dashboard/', views.dashboard, name='dashboard'),
-    # path('dashboard/create_post/', views.create_post, name='create_post'),
+
+    # group and friend paths
+    path('groups/', views.groups, name='groups'),
+    #path('groups/<int:group_id>/', views.group_detail, name='group_detail'),
+    #path('groups/<int:group_id>/edit/', views.edit_group, name='edit_group'),
+    #path('friends/', views.friends, name='friends'),
+    #path('friends/<int:friend_id>/', views.friend_detail, name='friend_detail'),
+
 
 ]
 
