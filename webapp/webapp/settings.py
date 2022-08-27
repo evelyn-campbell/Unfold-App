@@ -75,9 +75,18 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django_cockroachdb',
+        'NAME': 'defaultdb',
+        'USER': 'ev',
+        'PASSWORD': 'k2yENCiGYsqEV4Yr-OAKTA',
+        'HOST': 'free-tier14.aws-us-east-1.cockroachlabs.cloud',
+        'PORT': '26257',
+        'OPTIONS': {
+            'sslmode': 'verify-full',
+            'options': '--cluster=mamba-hawk-4536',
+            'application_name': 'docs_simplecrud_django'
+        },
+    },
 }
 
 
