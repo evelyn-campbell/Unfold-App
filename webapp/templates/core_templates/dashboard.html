@@ -10,10 +10,10 @@
       <form action="" method="POST">
         <div>
           {% csrf_token %}
-          <textarea name="text" rows="8" cols="80"></textarea>
-          <button type="button" onclick="openForm()">Mood</button>
+          <textarea name="text" rows="8" cols="80"></textarea><br>
+          <button type="button" onclick="toggleForm()">Mood</button>
           <div class="mood-popup" id="myForm">
-            <button type="button" onclick="closeForm()">X</button>
+            <h5>test</h5>
           </div>
           </div>
           <button type="submit">Post</button>
@@ -30,11 +30,13 @@
 </html>
 
 <script>
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
-  
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
-  </script>
+function toggleForm() {
+   var form = document.getElementById("myForm");
+    if (form.style.display === "block") {
+        form.style.display = "none";
+    } 
+    else {
+        form.style.display = "block";
+    }
+}
+</script>
