@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Profile
 
-# continue similarly for each html page
+# continue similarly for each page
 def home(request):
     return render(request, 'core_templates/home.html')
 
@@ -72,6 +72,10 @@ def logout(request):
 @login_required(login_url='login')
 def profile(request):
     return render(request, 'core_templates/profile.html')
+
+@login_required(login_url='login')
+def edit_profile(request):
+    return render(request, 'core_templates/edit_profile.html')
 
 @login_required(login_url='login')
 def dashboard(request):
