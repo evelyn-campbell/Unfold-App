@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technova Site</title>
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
+  </head>
+  <body>
+    <div class="main">
+      <h1>INSERT WEBSITE NAME HERE</h1>
+      <div class="login">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <h2>Login</h2>
+          <h3>Username</h3>
+          <input type="text" id="fname" name="username" /><br /><br />
+          <h3>Password</h3>
+          <input type="text" id="fname" name="password" /><br /><br />
+          <button type="submit">Log In</button>
+          <h3 style="text-align: center">Create Account</h3>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

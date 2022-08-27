@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technova Site</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>INSERT WEBSITE NAME HERE</h1>
+      <div class="signup">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <h2>Create Account</h2>
+          <h3>Username</h3>
+          <input type="text" id="fname" name="username" /><br /><br />
+          <h3>Email</h3>
+          <input type="text" id="fname" name="email" /><br /><br />
+          <h3>Password</h3>
+          <input type="text" id="fname" name="password" /><br /><br />
+          <h3>Confirm Password</h3>
+          <input type="text" id="fname" name="password_confirm" /><br /><br />
+          <button type="submit">Create Account</button>
+          <button type="button">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
