@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+  <title>Technova Site</title>
+  <link rel="stylesheet" href="{% static 'main.css'%}"/>
+</head>
+<body>
+  <div class="sidebar">
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="">Direct Messages</a></li>
+      <li><a href="">My Profile</a></li>
+      <li><a href="">Settings</a></li>
+      <li><a href="">Post</a></li>
+      <li><a href="">Groups</a></li>
+    </ul>
+  </div>
+  <div class="feed">
+    <h1>Home</h1>
+    <h4>Update Status</h4>
+      <div class="block">
+        <form>
+          <input type="text" id="fname" name="fname"><br><br>
+          <button type="button">Post</button>
+        </form>
+      </div>
+    <h4>Others' Statuses</h4>
+  </div>
+</body>
+</html>
