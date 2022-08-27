@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Profile
 
@@ -62,3 +63,8 @@ def signup(request):
             
     else:
         return render(request, 'core_templates/signup.html')
+
+@login_required(login_url='login')
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
