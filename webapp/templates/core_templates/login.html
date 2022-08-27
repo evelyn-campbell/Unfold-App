@@ -18,9 +18,9 @@
           {% csrf_token %}
           <h2>Login</h2>
           <h3>Username</h3>
-          <input type="text" id="fname" name="username" /><br /><br />
+          <input type="text" id="fname" name="username" required/><br /><br />
           <h3>Password</h3>
-          <input type="text" id="fname" name="password" /><br /><br />
+          <input type="password" id="fname" name="password" required/><br /><br />
           <button type="submit">Log In</button>
         </form>
         <form action="/signup/">
