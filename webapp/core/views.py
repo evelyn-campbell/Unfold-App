@@ -75,7 +75,23 @@ def profile(request):
 
 @login_required(login_url='login')
 def edit_profile(request):
-    return render(request, 'core_templates/edit_profile.html')
+    if request.method == 'POST':
+
+        # change password
+        new_password = request.POST['password']
+        password_confirm = request.POST['password_confirm']
+
+        if (new_password == password_confirm) and len(new_password) > 0:
+            user_inst = request.user
+            user_inst.set_password(new_password)
+            user_inst.save()
+            messages.info(request, 'Password updated. Please login again.')
+            return redirect('login')
+        else:
+            return redirect('edit_profile')
+
+    else:
+        return render(request, 'core_templates/edit_profile.html')
 
 @login_required(login_url='login')
 def dashboard(request):

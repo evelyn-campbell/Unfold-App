@@ -6,17 +6,23 @@
   <body>
     <div class="main">
       <h1>Edit Profile</h1>
-      <h2>Edit your stuff</h2>
-      <div class="signup">
+      <div class="login">
+
+        <form action="" method="POST">
+          {% csrf_token %}
+          <h3>Change Username</h3>
+          <input type="text" id="fname" name="new_username"/><br /><br />
+          <h3>Change Password</h3>
+          <input type="password" id="fname" name="password"/><br /><br />
+          <h3>Confirm New Password</h3>
+          <input type="password" id="fname" name="password_confirm"/><br /><br />
+          <button type="submit">Save</button>
+        </form>
+
         <form action="/profile/">
-            <button type="submit">cancel</button>
-          </form>
-        <form action="/dashboard/">
-          <button type="submit">DASHBOARD</button>
+            <button type="submit">Cancel</button>
         </form>
-        <form action="/logout/">
-          <button type="submit">Logout</button>
-        </form>
+
       </div>
     </div>
   </body>
