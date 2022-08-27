@@ -79,7 +79,9 @@ def edit_profile(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'core_templates/dashboard.html')
+    user_object = User.objects.get(username=request.user.username)
+    user_profile = Profile.objects.get(user=user_object)
+    return render(request, 'core_templates/dashboard.html', {'user_profile': user_profile})
 
 @login_required(login_url='login')
 def groups(request):

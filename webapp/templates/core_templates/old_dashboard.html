@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technova Site</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>DASHBAORD</h1>
+      <h2>we are gonna win technova</h2>
+      <form action="" method="POST">
+        <div>
+          {% csrf_token %}
+          <textarea name="text" rows="8" cols="80"></textarea><br />
+          <button type="button" onclick="toggleForm()">Mood</button>
+          <div class="mood-popup" id="myForm">
+            <h5>test</h5>
+          </div>
+        </div>
+        <button type="submit">Post</button>
+      </form>
+      <form action="/profile/">
+        <button type="submit">MY PROFILE</button>
+      </form>
+      <form action="/logout/">
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  function toggleForm() {
+    var form = document.getElementById("myForm");
+    if (form.style.display === "block") {
+      form.style.display = "none";
+    } else {
+      form.style.display = "block";
+    }
+  }
+</script>

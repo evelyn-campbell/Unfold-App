@@ -1,40 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Technova Site</title>
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
   </head>
   <body>
-    <div class="main">
-      <h1>DASHBAORD</h1>
-      <h2>we are gonna win technova</h2>
-      <form action="" method="POST">
-        <div>
-          {% csrf_token %}
-          <textarea name="text" rows="8" cols="80"></textarea><br />
-          <button type="button" onclick="toggleForm()">Mood</button>
-          <div class="mood-popup" id="myForm">
-            <h5>test</h5>
-          </div>
-        </div>
-        <button type="submit">Post</button>
-      </form>
-      <form action="/profile/">
-        <button type="submit">MY PROFILE</button>
-      </form>
-      <form action="/logout/">
-        <button type="submit">Logout</button>
-      </form>
+    <div class="sidebar">
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Direct Messages</a></li>
+        <li><a href="">Friends</a></li>
+        <li><a href="/groups/">Groups</a></li>
+        <li><a href="/profile/">My Profile</a></li>
+        <li><a href="">Settings</a></li>
+      </ul>
+    </div>
+    <div class="feed">
+      <h1>Home</h1>
+      <h4>Update Status</h4>
+      <div class="block">
+        <form action="" method="POST">
+          <input type="text" id="fname" name="message" /><br /><br />
+          <button type="submit">Post</button>
+        </form>
+      </div>
+      <h4>Feed</h4>
     </div>
   </body>
 </html>
-
-<script>
-  function toggleForm() {
-    var form = document.getElementById("myForm");
-    if (form.style.display === "block") {
-      form.style.display = "none";
-    } else {
-      form.style.display = "block";
-    }
-  }
-</script>
