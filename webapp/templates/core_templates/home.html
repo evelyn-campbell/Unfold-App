@@ -7,11 +7,11 @@
     <div class="main">
       <h1>WELCOME TO SUPER COOL EPIC WEBSITE!!</h1>
       <div class="signup">
-        <form action="" method="POST">
-          {% csrf_token %}
-          <h2>Create Account</h2>
+        <form action="/signup/">
           <button type="submit">Create Account</button>
-          <h2>Login</h2>
+        </form>
+        <h3>Already have an account?</h3>
+        <form action="/login/">
           <button type="submit">Login</button>
         </form>
       </div>
