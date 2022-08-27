@@ -16,6 +16,11 @@ h3 {
   color: #674243;
   margin-top: 5px;
 }
+h4 {
+  font-size: 24px;
+  color: #D5B9B2;
+  font-weight: normal;
+}
 body {
   margin: auto;
   margin: 25px;
@@ -53,4 +58,42 @@ button {
 }
 .main {
   padding: 100px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar {
+  display: block;
+  width: 329px;
+  text-align: left;
+  padding: 70px;
+  position: fixed;
+  border-radius: 9px;
+  height: 100%;
+}
+a {
+  font-size: 24px;
+  color: #D5B9B2;
+  text-decoration: none;
+}
+li {
+  margin-top: 30px;
+}
+.feed {
+  display: block;
+  width: 329px;
+  text-align: left;
+  margin-left: 460px;
+  padding-top: 70px;
+}
+.block {
+  display: block;
+  background-color: #D5B9B2;
+  width: 850px;
+  text-align: left;
+  margin: auto;
+  padding: 70px;
+  border-radius: 9px;
 }
