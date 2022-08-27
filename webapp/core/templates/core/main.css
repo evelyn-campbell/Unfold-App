@@ -1,0 +1,57 @@
+{% load static %}
+h1 {
+  font-size: 32px;
+  font-weight: normal;
+  color: #D5B9B2;
+  margin-top: 5px;
+}
+h2 {
+  font-size: 36px;
+  font-weight: normal;
+  color: #674243;
+  margin-top: 5px;
+}
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+  color: #674243;
+  margin-top: 5px;
+}
+body {
+  margin: auto;
+  margin: 25px;
+  background-color: #A26769;
+  font-family: arial, sans-serif;
+  text-align: center;
+}
+input {
+  width: 329px;
+  height: 56px;
+  border-radius: 9px;
+  text-align: center;
+  border: 0px;
+}
+.login {
+  display: block;
+  background-color: #D5B9B2;
+  width: 329px;
+  text-align: left;
+  margin: auto;
+  padding: 70px;
+  border-radius: 9px;
+}
+button {
+  background-color: #674243;
+  width: 329px;
+  height: 56px;
+  border-radius: 9px;
+  text-align: center;
+  border: 0px;
+  font-size: 24px;
+  font-weight: normal;
+  color: #D5B9B2;
+  margin-top: 5px;
+}
+.main {
+  padding: 100px;
+}
