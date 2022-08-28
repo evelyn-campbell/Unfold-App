@@ -74,13 +74,13 @@
             name="message"
             placeholder="How are you feeling?"
           ></textarea>
-          <button type="button" class="happy"> </button>
-          <button type="button" class="neutral"> </button>
-          <button type="button" class="sad"> </button>
-          <button type="button" class="anxious"> </button>
-          <button type="button" class="angry"> </button>
+          <button type="button" class="happy" onclick="select_mood('0')"> </button>
+          <button type="button" class="neutral" onclick="select_mood('1')"> </button>
+          <button type="button" class="sad" onclick="select_mood('2')"> </button>
+          <button type="button" class="anxious" onclick="select_mood('3')"> </button>
+          <button type="button" class="angry" onclick="select_mood('4')"> </button>
           <button type="submit" style="float:right">Post</button>
-          <h1 style="visibility: hidden; font-size: 0px">status</h1>
+          <input type="hidden" name="mood" value="0"></input>
         </form>
       </div>
       <h4>Feed</h4>
@@ -98,3 +98,9 @@
     </div>
   </body>
 </html>
+
+<script>
+  function select_mood(mood) {
+    document.getElementsByName("mood")[0].value = mood;
+  }
+</script>
