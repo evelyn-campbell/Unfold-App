@@ -1,11 +1,45 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
   <head>
     <style>
       body {
         background-image: url("{% static 'background.png'%}");
+      }
+      .happy {
+        background: url("{% static 'happy.png'%}");
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+      }
+      .neutral {
+        background: url("{% static 'neutral.png'%}");
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+      }
+      .sad {
+        background: url("{% static 'sad.png'%}");
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+      }
+      .anxious {
+        background: url("{% static 'anxious.png'%}");
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+      }
+      .angry {
+        background: url("{% static 'angry.png'%}");
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
       }
     </style>
     <title>Technova Site</title>
@@ -20,6 +54,7 @@
         <li><a href="/groups/">Groups</a></li>
         <li><a href="/profile/">My Profile</a></li>
         <li><a href="/settings/">Settings</a></li>
+        <li><h3 style="margin-top: 480px;">@{{ request.user.username }}</h3></li>
       </ul>
     </div>
     <div class="feed">
@@ -38,24 +73,33 @@
             name="message"
             placeholder="How are you feeling?"
           ></textarea>
-          <button type="button" class="mood">A</button>
-          <button type="button" class="mood">B</button>
-          <button type="button" class="mood">C</button>
-          <button type="button" class="mood">D</button>
+          <button type="button" class="happy" onclick="select_mood('0')"> </button>
+          <button type="button" class="neutral" onclick="select_mood('1')"> </button>
+          <button type="button" class="sad" onclick="select_mood('2')"> </button>
+          <button type="button" class="anxious" onclick="select_mood('3')"> </button>
+          <button type="button" class="angry" onclick="select_mood('4')"> </button>
           <button type="submit" style="float:right">Post</button>
-          <h1 style="visibility: hidden; font-size: 0px">status</h1>
+          <input type="hidden" name="mood" value="0"></input>
         </form>
       </div>
       <h4>Feed</h4>
       {% for status in statuses %}
       <div class="block">
-        <img src="status.jpg" class="status" />
-        <h5>{{status.user}}</h5>
+        <div style="display: inline-block; height: 50px;">
+          <img src="{% static 'happy.png'%}" class="status" style="float: left; width: 50px; height: 50px;"/>
+          <h4 style="float: right; margin-top: 10px; margin-left: 10px;">{{status.user}}</h4>
+        </div>
         <h5>{{status.message}}</h5>
-        <h5>{{status.created_at}}</h5>
+        <h4>{{status.created_at}}</h4>
       </div>
       <br />
       {% endfor %}
     </div>
   </body>
 </html>
+
+<script>
+  function select_mood(mood) {
+    document.getElementsByName("mood")[0].value = mood;
+  }
+</script>
