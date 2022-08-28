@@ -21,6 +21,11 @@ h4 {
   color: #6F5E71;
   font-weight: normal;
 }
+h5 {
+  font-size: 18px;
+  color: #6F5E71;
+  font-weight: normal;
+}
 body {
   margin: auto;
   margin: 25px;
@@ -70,16 +75,17 @@ ul {
 }
 .sidebar {
   display: block;
-  width: 329px;
+  width: 300px;
+  height: 90%;
   text-align: left;
-  padding: 70px;
+  margin: 40px;
+  padding-left: 50px;
   position: fixed;
-  border-radius: 9px;
-  height: 100%;
+  border-right: solid #6F5E71;
 }
 a {
   font-size: 24px;
-  color: #D5B9B2;
+  color: #6F5E71;
   text-decoration: none;
 }
 li {
