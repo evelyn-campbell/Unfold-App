@@ -1,9 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Technova Site</title>
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
+    <style>
+      body {
+        background-image: url("{% static 'background.png'%}");
+      }
+    </style>
   </head>
   <body>
+    <div class="sidebar">
+      <ul>
+        <li><a href="/dashboard/">Home</a></li>
+        <li><a href="">Direct Messages</a></li>
+        <li><a href="/friends/">Friends</a></li>
+        <li><a href="/groups/">Groups</a></li>
+        <li><a href="/profile/">My Profile</a></li>
+        <li><a href="/settings/">Settings</a></li>
+        <li><h3 style="margin-top: 480px;">@{{ request.user.username }}</h3></li>
+      </ul>
+    </div>
     <div class="main">
       <h1>Edit Profile</h1>
       <div class="login">
@@ -14,8 +32,6 @@
         </div>
         <form action="" method="POST">
           {% csrf_token %}
-          <h3>Change Avatar</h3>
-          <h4>some sort of dropdown menu here</h4><br />
           <h3>Change Username</h3>
           <input type="text" id="fname" name="new_username"/><br /><br />
           <h3>Change Password</h3>

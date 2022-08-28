@@ -1,24 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
-<head><h1>
-    Friends
-</h1></head>
-<body>
-    <h3>Add Friend</h3>
-    <input type="text" name="username" placeholder="Search for friend...">&nbsp;
-    <button type="submit">Enter</button><br /><br />
-
-    <h2>Your Friends</h2>
-    <h3>
-    <!--friends go here, just loop through them with templating or whatever -->
-    </h3>
-
-    <div class="signup">
-      <form action="/dashboard/">
-        <button type="submit">DASHBOARD</button>
-      </form>
-      <form action="/logout/">
-        <button type="submit">Logout</button>
-      </form>
+<html>
+  <head>
+    <title>Technova Site</title>
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
+    <style>
+      body {
+        background-image: url("{% static 'background.png'%}");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <ul>
+        <li><a href="/dashboard/">Home</a></li>
+        <li><a href="">Direct Messages</a></li>
+        <li><a href="/friends/">Friends</a></li>
+        <li><a href="/groups/">Groups</a></li>
+        <li><a href="/profile/">My Profile</a></li>
+        <li><a href="/settings/">Settings</a></li>
+        <li><h3 style="margin-top: 480px;">@{{ request.user.username }}</h3></li>
+      </ul>
     </div>
-</body>
+    <div class="main">
+      <h1>Friends</h1>
+      <h3>Add Friend</h3>
+      <input type="text" name="username" placeholder="Search for friend...">&nbsp;
+      <button type="submit">Enter</button><br /><br />
+
+      <h2>Your Friends</h2>
+      <h3>
+      <!--friends go here, just loop through them with templating or whatever -->
+      </h3>
+
+      <div class="signup">
+        <form action="/dashboard/">
+          <button type="submit">DASHBOARD</button>
+        </form>
+        <form action="/logout/">
+          <button type="submit">Logout</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
