@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile
+from .models import Profile, Status
 
 # continue similarly for each page
 def home(request):
@@ -109,6 +109,18 @@ def dashboard(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=user_object)
     return render(request, 'core_templates/dashboard.html', {'user_profile': user_profile})
+
+@login_required(login_url='login')
+def upload_status(request):
+    if request.method == 'POST':
+        user = request.user.username
+        mood = 0 # temporary
+        message = request.POST['message']
+        new_status = Status.objects.create(user=user, mood=mood, message=message)
+        new_status.save()
+        return redirect('dashboard')
+    else:
+        return render(request, 'core_templates/dashboard.html')
 
 @login_required(login_url='login')
 def groups(request):

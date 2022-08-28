@@ -20,7 +20,12 @@
       <h1>Home</h1>
       <h4>Update Status</h4>
       <div class="block">
-        <form action="" method="POST">
+        <form
+          action="/upload-status/"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
           <input type="text" id="fname" name="message" /><br /><br />
           <button type="submit">Post</button>
         </form>

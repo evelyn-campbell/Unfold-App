@@ -6,6 +6,7 @@ urlpatterns = [
     # home/index page
     path('', views.home, name='home'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('upload-status/', views.upload_status, name='upload-status'),
 
     # authentication paths
     path('login/', views.login, name='login'),
