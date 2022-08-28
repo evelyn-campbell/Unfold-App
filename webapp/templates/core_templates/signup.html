@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Technova Site</title>
+    <title>Unfold</title>
     <link rel="stylesheet" href="{% static 'main.css'%}" />
     <style>
       body {
@@ -12,19 +12,29 @@
   </head>
   <body>
     <div class="main">
-      <img src="{% static 'logo.png'%}" alt="Unfold" class="logo">
+      <img src="{% static 'logo.png'%}" alt="Unfold" class="logo" />
       <div class="login">
         <form action="" method="POST">
           {% csrf_token %}
           <h2>Create Account</h2>
           <h3>Username</h3>
-          <input type="text" id="fname" name="username" required/><br /><br />
+          <input type="text" id="fname" name="username" required /><br /><br />
           <h3>Email</h3>
-          <input type="text" id="fname" name="email" required/><br /><br />
+          <input type="text" id="fname" name="email" required /><br /><br />
           <h3>Password</h3>
-          <input type="password" id="fname" name="password" required/><br /><br />
+          <input
+            type="password"
+            id="fname"
+            name="password"
+            required
+          /><br /><br />
           <h3>Confirm Password</h3>
-          <input type="password" id="fname" name="password_confirm" required/><br /><br />
+          <input
+            type="password"
+            id="fname"
+            name="password_confirm"
+            required
+          /><br /><br />
           <button type="submit">Create Account</button>
         </form>
         <form action="/login/">

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Technova Site</title>
+    <title>Unfold</title>
     <link rel="stylesheet" href="{% static 'main.css'%}" />
     <style>
       body {
@@ -13,13 +13,13 @@
   <body>
     <div class="sidebar">
       <ul>
-        <li><a href="/dashboard/" style="color:#6AD885">Home</a></li>
-        <li><a href="" style="color:#6AB9D8">Direct Messages</a></li>
-        <li><a href="/friends/" style="color:#B786D8">Friends</a></li>
-        <li><a href="/groups/" style="color:#D8B26A">Groups</a></li>
-        <li><a href="/profile/" style="color:#C65D82">My Profile</a></li>
-        <li><a href="/settings/" style="color:#656565">Settings</a></li>
-        <li><h3 style="margin-top: 480px;">@{{ request.user.username }}</h3></li>
+        <li><a href="/dashboard/" style="color: #6ad885">Home</a></li>
+        <li><a href="" style="color: #6ab9d8">Direct Messages</a></li>
+        <li><a href="/friends/" style="color: #b786d8">Friends</a></li>
+        <li><a href="/groups/" style="color: #d8b26a">Groups</a></li>
+        <li><a href="/profile/" style="color: #c65d82">My Profile</a></li>
+        <li><a href="/settings/" style="color: #656565">Settings</a></li>
+        <li><h3 style="margin-top: 480px">@{{ request.user.username }}</h3></li>
       </ul>
     </div>
     <div class="main">
