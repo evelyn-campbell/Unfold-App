@@ -13,7 +13,8 @@
         <h4>{{message}}</h4>
       {% endfor %}
       <form action="" method="POST">
-        <button type="submit" name="friend_request">Add Friend</button><br /><br />
+        {% csrf_token %}
+        <button type="submit">Add Friend</button><br /><br />
       </form>
 
       <div class="signup">
