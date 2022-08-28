@@ -40,5 +40,5 @@ class Status(models.Model):
 
     def get_mood_icon(self, mood):
         mood_to_icon = {'0': 'neutral.png', '1': 'sad.png', '2': 'anxious.png', '3': 'happy.png', '4': 'angry.png'}
-        mood_icon = models.ImageField(mood_to_icon[str(mood)])
+        mood_icon = mood_to_icon[str(mood)]
         return mood_icon
