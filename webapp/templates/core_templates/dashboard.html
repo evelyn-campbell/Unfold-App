@@ -1,28 +1,38 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<title>Technova Site</title>
-<link rel="stylesheet" href="{% static 'main.css'%}" />
-</head>
-<body>
-  <div class="sidebar">
-    <ul>
-      <li><a href="">Home</a></li>
-      <li><a href="">Direct Messages</a></li>
-      <li><a href="">My Profile</a></li>
-      <li><a href="">Settings</a></li>
-      <li><a href="">Post</a></li>
-      <li><a href="">Groups</a></li>
-      <li><button>Log Out</button></li>
-    </ul>
-  </div>
-  <div class="feed">
-    <h1>Home</h1>
-    <h4>Update Status</h4>
+  <head>
+    <title>Technova Site</title>
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Direct Messages</a></li>
+        <li><a href="">My Profile</a></li>
+        <li><a href="">Settings</a></li>
+        <li><a href="">Post</a></li>
+        <li><a href="">Groups</a></li>
+        <li><button>Log Out</button></li>
+      </ul>
+    </div>
+    <div class="feed">
+      <h1>Home</h1>
+      <h4>Update Status</h4>
       <div class="block">
-        <form>
-          <textarea type="text" id="fname" name="fname" placeholder="How are you feeling?"></textarea>
+        <form
+          action="/upload-status/"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <textarea
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="How are you feeling?"
+          ></textarea>
           <button type="button" class="mood">A</button>
           <button type="button" class="mood">B</button>
           <button type="button" class="mood">C</button>
@@ -30,14 +40,14 @@
           <button type="button">Post</button>
         </form>
       </div>
-    <h4>Others' Statuses</h4>
-    <div class="block">
-      <h5>Sample status 1</h5>
+      <h4>Others' Statuses</h4>
+      <div class="block">
+        <h5>Sample status 1</h5>
+      </div>
+      <br />
+      <div class="block">
+        <h5>Sample status 2</h5>
+      </div>
     </div>
-    <br>
-    <div class="block">
-      <h5>Sample status 2</h5>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
