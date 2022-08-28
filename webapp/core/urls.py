@@ -24,7 +24,7 @@ urlpatterns = [
     #path('groups/<int:group_id>/', views.group_detail, name='group_detail'),
     #path('groups/<int:group_id>/edit/', views.edit_group, name='edit_group'),
     path('friends/', views.friends, name='friends'),
-    path('friends/request_accepted/<str:pk>', views.recieve_friend_request, name='request_accepted'),
+    path('friends/request_accepted/<str:pk>/', views.recieve_friend_request, name='request_accepted'),
     #path('friends/<int:friend_id>/', views.friend_detail, name='friend_detail'),
 
 
