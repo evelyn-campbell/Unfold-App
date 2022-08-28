@@ -98,13 +98,10 @@ def other_profile(request, pk):
 
         if request_created:
             messages.info(request, 'Friend request sent :)')
-            return redirect('other_profile')
         else:
             messages.info(request, 'Friend request already sent.')
-            return redirect('other_profile')
-
-    else:
-        return render(request, 'core_templates/other_profile.html', context)
+           
+    return render(request, 'core_templates/other_profile.html', context)
 
 @login_required(login_url='login')
 def settings(request):
@@ -151,6 +148,8 @@ def upload_status(request):
         mood = (request.POST['mood'])
         message = request.POST['message']
         new_status = Status.objects.create(user=user, mood=mood, message=message)
+        new_status.save()
+        new_status.mood_icon = new_status.get_mood_icon(mood)
         new_status.save()
         return redirect('dashboard')
     else:
