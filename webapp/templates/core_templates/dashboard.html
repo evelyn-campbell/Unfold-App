@@ -1,36 +1,42 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <title>Technova Site</title>
-    <link rel="stylesheet" href="{% static 'main.css'%}" />
-  </head>
-  <body>
-    <div class="sidebar">
-      <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Direct Messages</a></li>
-        <li><a href="">Friends</a></li>
-        <li><a href="/groups/">Groups</a></li>
-        <li><a href="/profile/">My Profile</a></li>
-        <li><a href="">Settings</a></li>
-      </ul>
-    </div>
-    <div class="feed">
-      <h1>Home</h1>
-      <h4>Update Status</h4>
+<head>
+<title>Technova Site</title>
+<link rel="stylesheet" href="{% static 'main.css'%}" />
+</head>
+<body>
+  <div class="sidebar">
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="">Direct Messages</a></li>
+      <li><a href="">My Profile</a></li>
+      <li><a href="">Settings</a></li>
+      <li><a href="">Post</a></li>
+      <li><a href="">Groups</a></li>
+    </ul>
+  </div>
+  <div class="feed">
+    <h1>Home</h1>
+    <h4>Update Status</h4>
       <div class="block">
-        <form
-          action="/upload-status/"
-          method="POST"
-          enctype="multipart/form-data"
-        >
-          {% csrf_token %}
-          <input type="text" id="fname" name="message" /><br /><br />
-          <button type="submit">Post</button>
+        <form>
+          <textarea type="text" id="fname" name="fname" placeholder="How are you feeling?"></textarea>
+          <button type="button" class="mood">A</button>
+          <button type="button" class="mood">B</button>
+          <button type="button" class="mood">C</button>
+          <button type="button" class="mood">D</button>
+          <button type="button">Post</button>
         </form>
       </div>
-      <h4>Feed</h4>
+    <h4>Others' Statuses</h4>
+    <div class="block">
+      <h5>Sample status 1</h5>
     </div>
-  </body>
+    <br>
+    <div class="block">
+      <h5>Sample status 2</h5>
+    </div>
+  </div>
+</body>
 </html>
