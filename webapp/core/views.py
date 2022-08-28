@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile, Status, FriendRequest
+from .models import Profile, Status, FriendRequest, Hug
 
 # continue similarly for each page
 def home(request):
@@ -180,4 +180,23 @@ def recieve_friend_request(request, pk):
 
 
     return render(request, 'core_templates/friends.html')
+
+@login_required(login_url='login')
+def hug(request):
+    username = request.user.username
+    status_id = request.GET.get('status_id')
+
+    status = Status.objects.get(id=status_id)
+
+    is_hugged = Hug.objects.filter(status_id=status_id, user=username).exists()
+
+    if not is_hugged:
+        new_hug = Hug.objects.create(status_id=status_id, user=username)
+        new_hug.save()
+
+        status.hugs += 1
+        return redirect('dashboard')
+
+
+    return redirect('dashboard')
     

@@ -35,6 +35,7 @@ class Status(models.Model):
     mood = models.IntegerField(default=0)
     mood_icon = models.ImageField(upload_to='mood_pictures', default='neutral.png')
     message = models.TextField(max_length=500)
+    hugs = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user
@@ -43,3 +44,10 @@ class Status(models.Model):
         mood_to_icon = {'0': 'neutral.png', '1': 'sad.png', '2': 'anxious.png', '3': 'happy.png', '4': 'angry.png'}
         mood_icon = mood_to_icon[str(mood)]
         return mood_icon
+
+class Hug(models.Model):
+    status_id = models.CharField(max_length=500)
+    user = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user
