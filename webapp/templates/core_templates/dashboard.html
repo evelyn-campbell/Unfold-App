@@ -3,6 +3,35 @@
 <html>
   <head>
     <style>
+      :root {
+        --statusbox: #B2FFC6;
+        --statustext: #45A874;
+        --statushover: #86F4A2; 
+      }
+
+      .status {
+        display: block;
+        background-color: var(--statusbox);
+        width: 850px;
+        text-align: left;
+        margin: auto;
+        padding: 70px;
+        border-radius: 9px;
+      }
+
+      .statusmessage {
+        background-color: var(--statusbox);
+        color: var(--statustext);
+      }
+
+      .statusbutton {
+        background-color: var(--statusbox);
+        color: var(--statustext);
+      }
+      .statusbutton:hover {
+        background-color: var(--statushover);
+      }
+
       body {
         background-image: url("{% static 'background.png'%}");
       }
@@ -67,7 +96,7 @@
     <div class="feed">
       <h1>Home</h1>
       <h4>Update Status</h4>
-      <div class="block">
+      <div class="status">
         <form
           action="/upload-status/"
           method="POST"
@@ -79,13 +108,14 @@
             id="fname"
             name="message"
             placeholder="How are you feeling?"
+            class="statusmessage"
           ></textarea>
           <button type="button" class="neutral" onclick="select_mood('0')"> </button>
           <button type="button" class="sad" onclick="select_mood('1')"> </button>
           <button type="button" class="anxious" onclick="select_mood('2')"> </button>
           <button type="button" class="happy" onclick="select_mood('3')"> </button>
           <button type="button" class="angry" onclick="select_mood('4')"> </button>
-          <button type="submit" style="float:right">Post</button>
+          <button type="submit" style="float:right" class="statusbutton">Post</button>
           <input type="hidden" name="mood" value="0"></input>
         </form>
       </div>
@@ -111,5 +141,34 @@
 <script>
   function select_mood(mood) {
     document.getElementsByName("mood")[0].value = mood;
+
+    var r = document.querySelector(':root');
+    switch (mood) {
+      case '0':
+        r.style.setProperty('--statusbox', '#B2FFC6');
+        r.style.setProperty('--statustext', '#45A874');
+        r.style.setProperty('--statushover', '#86F4A2');
+        break;
+      case '1':
+        r.style.setProperty('--statusbox', '#A5FFF3');
+        r.style.setProperty('--statustext', '#2481B7');
+        r.style.setProperty('--statushover', '#6EC9EA');
+        break;
+      case '2':
+        r.style.setProperty('--statusbox', '#E5C9E8');
+        r.style.setProperty('--statustext', '#6F5E71');
+        r.style.setProperty('--statushover', '#c9b0cc');
+        break;
+      case '3':
+        r.style.setProperty('--statusbox', '#FBFFA3');
+        r.style.setProperty('--statustext', '#C68C51');
+        r.style.setProperty('--statushover', '#F4EC8D');
+        break;
+      case '4':
+        r.style.setProperty('--statusbox', '#FFADAD');
+        r.style.setProperty('--statustext', '#C65784');
+        r.style.setProperty('--statushover', '#F799A2');
+        break;
+    }
   }
 </script>
