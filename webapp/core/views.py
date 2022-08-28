@@ -143,7 +143,7 @@ def settings(request):
 def dashboard(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=user_object)
-    statuses = Status.objects.all()
+    statuses = sorted(Status.objects.all(), key=lambda x: x.created_at, reverse=True)
     return render(request, 'core_templates/dashboard.html', {'user_profile': user_profile, 'statuses': statuses})
 
 @login_required(login_url='login')

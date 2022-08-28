@@ -35,22 +35,26 @@
           <textarea
             type="text"
             id="fname"
-            name="fname"
+            name="message"
             placeholder="How are you feeling?"
           ></textarea>
           <button type="button" class="mood">A</button>
           <button type="button" class="mood">B</button>
           <button type="button" class="mood">C</button>
           <button type="button" class="mood">D</button>
-          <button type="button">Post</button>
+          <button type="submit">Post</button>
         </form>
       </div>
-      <h4>Others' Statuses</h4>
+      <h4>Feed</h4>
+      {% for status in statuses %}
       <div class="block">
-        <img src="status.jpg" alt="status" class="status">
-        <h5>Sample status 1</h5>
+        <img src="status.jpg" class="status" />
+        <h5>{{status.user}}</h5>
+        <h5>{{status.message}}</h5>
+        <h5>{{status.created_at}}</h5>
       </div>
       <br />
+      {% endfor %}
     </div>
   </body>
 </html>
