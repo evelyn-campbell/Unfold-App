@@ -1,19 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Technova Site</title>
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
+    <style>
+      body {
+        background-image: url("{% static 'background.png'%}");
+      }
+    </style>
   </head>
   <body>
     <div class="main">
-      <h1>My Profile</h1>
-      <img width="100" height="100" src="{{user_profile.avatar.url}}" />
+      <h3>My Profile</h3>
+      <img width="100" height="100" border-radius = 100px src="{{user_profile.avatar.url}}" />
       <h2>{{ request.user.username }}</h2>
       <div class="signup">
         <form action="/dashboard/">
-          <button type="submit">DASHBOARD</button>
+          <button type="submit">Dashboard</button>
         </form>
         <form action="/logout/">
-          <button type="submit">Logout</button>
+          <button type="submit">Log Out</button>
         </form>
       </div>
     </div>
