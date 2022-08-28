@@ -32,6 +32,22 @@
       <h3>
       <!--friends go here, just loop through them with templating or whatever -->
       </h3>
+      <h2>Friend Requests</h2>
+      <form action="" method="POST">
+        {% csrf_token %}
+        {% for request in friend_request %}
+          <h3>{{ request.from_user }}</h3>
+          <a href="/friends/request_accepted/{{ request.id }}/">Accept Request</a>
+          {{ message }}
+        {% endfor %}
+      </form>
+
+      <h2>Your Friends</h2>
+      <h3>
+        {% for friend in request.user.friends.all %}
+          {{ friend.username }}
+        {% endfor %}
+      </h3>
 
       <div class="signup">
         <form action="/dashboard/">
