@@ -31,7 +31,20 @@
         src="{{user_profile.avatar.url}}"
       />
       <h2>{{ request.user.username }}</h2>
-
+      {% for mystatus in mystatuses %}
+      <div class="block">
+        <div style="display: inline-block; height: 50px;">
+          <img src="{{mystatus.mood_icon.url}}"style="float: left; width: 50px; height: 50px;"/>
+          <h4 style="float: right; margin-top: 10px; margin-left: 10px;">{{mystatus.user}}</h4>
+        </div>
+        <h5>{{mystatus.message}}</h5>
+        <h5 style="font-size: 13px; margin-bottom: -20px; margin-top: -20px;">{{mystatus.created_at}}</h4>
+        <a href="/like-post?status_id">
+          <button type="button" class="hug"> </button>
+        </a>
+      </div>
+      <br />
+      {% endfor %}
       <br /><br />
       <div class="signup"></div>
     </div>
