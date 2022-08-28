@@ -41,6 +41,13 @@
         height: 50px;
         border-radius: 100px;
       }
+      .hug {
+        background: url("{% static 'hug.png'%}");
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+      }
     </style>
     <title>Technova Site</title>
     <link rel="stylesheet" href="{% static 'main.css'%}" />
@@ -90,7 +97,8 @@
           <h4 style="float: right; margin-top: 10px; margin-left: 10px;">{{status.user}}</h4>
         </div>
         <h5>{{status.message}}</h5>
-        <h4>{{status.created_at}}</h4>
+        <h5 style="font-size: 13px; margin-bottom: -20px; margin-top: -20px;">{{status.created_at}}</h4>
+        \<button type="button" class="hug"> </button>
       </div>
       <br />
       {% endfor %}
