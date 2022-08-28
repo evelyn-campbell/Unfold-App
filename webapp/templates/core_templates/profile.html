@@ -6,7 +6,7 @@
   <body>
     <div class="main">
       <h1>My Profile</h1>
-      <h4>Profile pic goes here</h4>
+      <img width="100" height="100" src="{{user_profile.avatar.url}}" />
       <h2>{{ request.user.username }}</h2>
       <div class="signup">
         <form action="/dashboard/">

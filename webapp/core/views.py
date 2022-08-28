@@ -71,7 +71,10 @@ def logout(request):
 
 @login_required(login_url='login')
 def profile(request):
-    return render(request, 'core_templates/profile.html')
+    user_object = User.objects.get(username=request.user.username)
+    user_profile = Profile.objects.get(user=user_object)
+    mystatuses = Status.objects.filter(user=request.user.username)
+    return render(request, 'core_templates/profile.html', {'user_profile': user_profile, 'mystatuses': mystatuses})
 
 @login_required(login_url='login')
 def settings(request):
