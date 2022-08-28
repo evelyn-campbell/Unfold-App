@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technova Site</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Profile</h1>
+      <h4>Profile pic goes here</h4>
+      <h2>{{ user_profile.user.username }}</h2>
+      <div class="signup">
+        <form action="/dashboard/">
+          <button type="submit">DASHBOARD</button>
+        </form>
+        <form action="/logout/">
+          <button type="submit">Logout</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

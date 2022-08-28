@@ -15,6 +15,7 @@ urlpatterns = [
 
     # profile paths
     path('profile/', views.profile, name='profile'),
+    path('profile/<str:pk>/', views.other_profile, name='other_profile'),
     path('settings/', views.settings, name='settings'),
 
     # group and friend paths
