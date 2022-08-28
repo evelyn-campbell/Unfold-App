@@ -1,36 +1,29 @@
 h1 {
   font-size: 32px;
   font-weight: normal;
-  color: #D5B9B2;
+  color: #FFFFFF;
   margin-top: 5px;
 }
 h2 {
   font-size: 36px;
   font-weight: normal;
-  color: #674243;
+  color: #6F5E71;
   margin-top: 5px;
 }
 h3 {
   font-size: 24px;
   font-weight: normal;
-  color: #674243;
+  color: #6F5E71;
   margin-top: 5px;
 }
 h4 {
   font-size: 24px;
-  color: #D5B9B2;
+  color: #6F5E71;
   font-weight: normal;
-}
-h5 {
-  font-size: 24px;
-  color: #A26769;
-  font-weight: normal;
-  margin: 0px;
 }
 body {
   margin: auto;
   margin: 25px;
-  background-color: #A26769;
   font-family: arial, sans-serif;
   text-align: center;
 }
@@ -39,19 +32,21 @@ input {
   height: 56px;
   border-radius: 9px;
   text-align: center;
+  background-color: #D9D9D9;
   border: 0px;
 }
 .login {
   display: block;
-  background-color: #D5B9B2;
+  background-color: #FCFCFC;
   width: 329px;
   text-align: left;
   margin: auto;
   padding: 70px;
   border-radius: 9px;
+  outline: #E5C9E8 solid 10px;
 }
 button {
-  background-color: #674243;
+  background-color: #E5C9E8;
   width: 329px;
   height: 56px;
   border-radius: 9px;
@@ -59,7 +54,7 @@ button {
   border: 0px;
   font-size: 24px;
   font-weight: normal;
-  color: #D5B9B2;
+  color: #6F5E71;
   margin-top: 5px;
 }
 .main {
@@ -100,7 +95,7 @@ li {
   width: 850px;
   text-align: left;
   margin: auto;
-  padding: 30px;
+  padding: 70px;
   border-radius: 9px;
 }
 textarea {
@@ -111,8 +106,8 @@ textarea {
   width: 850px;
   resize: none;
 }
-.mood {
-  width: 50px;
-  height: 50px;
-  border-radius: 100px;
+.logo {
+  padding: 30px;
+  width: 312px;
+  height: 107px;
 }
