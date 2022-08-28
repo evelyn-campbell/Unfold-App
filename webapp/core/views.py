@@ -150,7 +150,7 @@ def dashboard(request):
 def upload_status(request):
     if request.method == 'POST':
         user = request.user.username
-        mood = 0 # temporary
+        mood = (request.POST['mood'])
         message = request.POST['message']
         new_status = Status.objects.create(user=user, mood=mood, message=message)
         new_status.save()

@@ -38,12 +38,20 @@
             name="message"
             placeholder="How are you feeling?"
           ></textarea>
-          <button type="button" class="mood">A</button>
-          <button type="button" class="mood">B</button>
-          <button type="button" class="mood">C</button>
-          <button type="button" class="mood">D</button>
-          <button type="submit" style="float:right">Post</button>
-          <h1 style="visibility: hidden; font-size: 0px">status</h1>
+          <button type="button" class="mood" onclick="select_mood('0')">
+            A
+          </button>
+          <button type="button" class="mood" onclick="select_mood('1')">
+            B
+          </button>
+          <button type="button" class="mood" onclick="select_mood('2')">
+            C
+          </button>
+          <button type="button" class="mood" onclick="select_mood('3')">
+            D
+          </button>
+          <button type="submit" style="float: right">Post</button>
+          <input type="hidden" name="mood" value="0"></input>
         </form>
       </div>
       <h4>Feed</h4>
@@ -59,3 +67,9 @@
     </div>
   </body>
 </html>
+
+<script>
+  function select_mood(mood) {
+    document.getElementsByName("mood")[0].value = mood;
+  }
+</script>
