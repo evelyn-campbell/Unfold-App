@@ -77,6 +77,19 @@ def profile(request):
     return render(request, 'core_templates/profile.html', {'user_profile': user_profile, 'mystatuses': mystatuses})
 
 @login_required(login_url='login')
+def other_profile(request, pk):
+    user_object = User.objects.get(username=pk)
+    user_profile = Profile.objects.get(user=user_object)
+    user = pk
+
+    context = {
+        'user_object': user_object,
+        'user_profile': user_profile,
+    }
+
+    return render(request, 'core_templates/other_profile.html', context)
+
+@login_required(login_url='login')
 def settings(request):
     if request.method == 'POST':
         new_username = request.POST['new_username']

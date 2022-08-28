@@ -16,9 +16,16 @@ class Profile(models.Model):
     # status info
     mood = models.IntegerField(default=0)
 
+    # friends
+    friends = models.ManyToManyField("Profile", blank=True)
+
     # name objects by username
     def __str__(self):
         return self.user.username
+
+class FriendRequest(models.Model):
+    from_user = models.ForeignKey(Profile, related_name='from_user', on_delete=models.CASCADE)
+    to_user = models.ForeignKey(Profile, related_name='to_user', on_delete=models.CASCADE)
 
 class Status(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
