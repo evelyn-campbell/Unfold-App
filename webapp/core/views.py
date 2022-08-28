@@ -127,3 +127,6 @@ def upload_status(request):
 def groups(request):
     return render(request, 'core_templates/groups.html')
 
+@login_required(login_url='login')
+def friends(request):
+    return render(request, 'core_templates/friends.html')
