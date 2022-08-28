@@ -108,7 +108,8 @@ def edit_profile(request):
 def dashboard(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=user_object)
-    return render(request, 'core_templates/dashboard.html', {'user_profile': user_profile})
+    statuses = Status.objects.all()
+    return render(request, 'core_templates/dashboard.html', {'user_profile': user_profile, 'statuses': statuses})
 
 @login_required(login_url='login')
 def upload_status(request):
