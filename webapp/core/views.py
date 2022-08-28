@@ -98,13 +98,10 @@ def other_profile(request, pk):
 
         if request_created:
             messages.info(request, 'Friend request sent :)')
-            return redirect('other_profile')
         else:
             messages.info(request, 'Friend request already sent.')
-            return redirect('other_profile')
-
-    else:
-        return render(request, 'core_templates/other_profile.html', context)
+           
+    return render(request, 'core_templates/other_profile.html', context)
 
 @login_required(login_url='login')
 def settings(request):
