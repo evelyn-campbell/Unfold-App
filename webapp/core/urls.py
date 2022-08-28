@@ -15,13 +15,13 @@ urlpatterns = [
 
     # profile paths
     path('profile/', views.profile, name='profile'),
-    path('profile/edit/', views.edit_profile, name='edit_profile'),
+    path('settings/', views.settings, name='settings'),
 
     # group and friend paths
     path('groups/', views.groups, name='groups'),
     #path('groups/<int:group_id>/', views.group_detail, name='group_detail'),
     #path('groups/<int:group_id>/edit/', views.edit_group, name='edit_group'),
-    #path('friends/', views.friends, name='friends'),
+    path('friends/', views.friends, name='friends'),
     #path('friends/<int:friend_id>/', views.friend_detail, name='friend_detail'),
 
 

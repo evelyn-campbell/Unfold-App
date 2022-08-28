@@ -14,6 +14,8 @@
         </div>
         <form action="" method="POST">
           {% csrf_token %}
+          <h3>Change Avatar</h3>
+          <h4>some sort of dropdown menu here</h4><br />
           <h3>Change Username</h3>
           <input type="text" id="fname" name="new_username"/><br /><br />
           <h3>Change Password</h3>
@@ -23,8 +25,8 @@
           <button type="submit">Save</button>
         </form>
 
-        <form action="/profile/">
-            <button type="submit">Cancel</button>
+        <form action="/dashboard/">
+            <button type="submit">Return to Dashboard</button>
         </form>
 
       </div>
