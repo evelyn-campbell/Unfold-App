@@ -74,7 +74,7 @@ def profile(request):
     return render(request, 'core_templates/profile.html')
 
 @login_required(login_url='login')
-def edit_profile(request):
+def settings(request):
     if request.method == 'POST':
         new_username = request.POST['new_username']
         new_password = request.POST['new_password']

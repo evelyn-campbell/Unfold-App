@@ -6,11 +6,9 @@
   <body>
     <div class="main">
       <h1>My Profile</h1>
-      <h2>gub</h2>
+      <h4>Profile pic goes here</h4>
+      <h2>{{ request.user.username }}</h2>
       <div class="signup">
-        <form action="edit/">
-          <button type="submit">Edit your profile bro</button>
-        </form>
         <form action="/dashboard/">
           <button type="submit">DASHBOARD</button>
         </form>
