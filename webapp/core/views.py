@@ -35,12 +35,12 @@ def signup(request):
         password_confirm = request.POST['password_confirm']
 
         if password == password_confirm:
-            # user is taken
+            # email is taken
             if User.objects.filter(email=email).exists():
                 messages.info(request, 'Email already exists!')
                 return redirect('signup')
 
-            # email is taken
+            # user is taken
             elif User.objects.filter(username=username).exists():
                 messages.info(request, 'Username already exists!')
                 return redirect('signup')
@@ -76,20 +76,31 @@ def profile(request):
 @login_required(login_url='login')
 def edit_profile(request):
     if request.method == 'POST':
+        new_username = request.POST['new_username']
+        new_password = request.POST['new_password']
+        password_confirm = request.POST['password_confirm']
+        user_inst = request.user
+
+        # change username
+        if User.objects.filter(username=new_username).exists():
+            print('Username already exists!')
+            return redirect('edit_profile')
+        elif len(new_username) > 0:
+            user_inst.username = new_username
+            user_inst.save()
 
         # change password
-        new_password = request.POST['password']
-        password_confirm = request.POST['password_confirm']
-
         if (new_password == password_confirm) and len(new_password) > 0:
-            user_inst = request.user
             user_inst.set_password(new_password)
             user_inst.save()
             messages.info(request, 'Password updated. Please login again.')
             return redirect('login')
         else:
+            print('Passwords do not match.')
             return redirect('edit_profile')
-
+            
+        print('Profile saved.')
+        return redirect('edit_profile')
     else:
         return render(request, 'core_templates/edit_profile.html')
 
