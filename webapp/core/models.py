@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 import uuid
+from datetime import datetime
 
 User = get_user_model()
 class Profile(models.Model):
@@ -11,7 +12,7 @@ class Profile(models.Model):
     # profile info
     avatar = models.ImageField(upload_to='profile_pictures', default='default.png')
     private = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=datetime.now)
 
     # status info
     mood = models.IntegerField(default=0)
@@ -30,7 +31,7 @@ class FriendRequest(models.Model):
 class Status(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=datetime.now)
     mood = models.IntegerField(default=0)
     mood_icon = models.ImageField(upload_to='mood_pictures', default='neutral.png')
     message = models.TextField(max_length=500)

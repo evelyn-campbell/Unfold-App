@@ -19,22 +19,21 @@
         <li><a href="/groups/">Groups</a></li>
         <li><a href="/profile/">My Profile</a></li>
         <li><a href="/settings/">Settings</a></li>
-        <li><h3 style="margin-top: 480px;">@{{ request.user.username }}</h3></li>
+        <li><h3 style="margin-top: 480px">@{{ request.user.username }}</h3></li>
       </ul>
     </div>
     <div class="main">
       <h3>My Profile</h3>
-      <img width="100" height="100" border-radius = 100px src="{{user_profile.avatar.url}}" />
+      <img
+        width="100"
+        height="100"
+        border-radius="100px"
+        src="{{user_profile.avatar.url}}"
+      />
       <h2>{{ request.user.username }}</h2>
 
-      <br /><br /><div class="signup">
-        <form action="/dashboard/">
-          <button type="submit">Dashboard</button>
-        </form>
-        <form action="/logout/">
-          <button type="submit">Log Out</button>
-        </form>
-      </div>
+      <br /><br />
+      <div class="signup"></div>
     </div>
   </body>
 </html>
