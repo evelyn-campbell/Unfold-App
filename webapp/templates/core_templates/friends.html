@@ -33,14 +33,16 @@
       <!--friends go here, just loop through them with templating or whatever -->
       </h3>
       <h2>Friend Requests</h2>
-      <form action="" method="POST">
-        {% csrf_token %}
-        {% for request in friend_request %}
-          <h3>{{ request.from_user }}</h3>
-          <a href="/friends/request_accepted/{{ request.id }}/">Accept Request</a>
+      
+        {% for request in all_requests %}
+          <h3><b>{{ request.from_user }}</b></h3>
+          <form action="" method="POST"></form>
+            {% csrf_token %}
+            <a href="/friends/request_accepted/{{ request.from_user.username }}>/">Accept Request</a>
+          </form>
           {{ message }}
         {% endfor %}
-      </form>
+        <br /><br />
 
       <h2>Your Friends</h2>
       <h3>

@@ -93,7 +93,7 @@ def other_profile(request, pk):
         # friend_request = request.POST['friend_request']
 
         from_user = Profile.objects.get(user=request.user)
-        to_user = Profile.objects.get(user=user_object)
+        to_user = user_profile
         friend_request, request_created = FriendRequest.objects.get_or_create(from_user=from_user, to_user=to_user)
 
         if request_created:
@@ -161,17 +161,23 @@ def groups(request):
 
 @login_required(login_url='login')
 def friends(request):
-    return render(request, 'core_templates/friends.html')
+    user = Profile.objects.get(user=request.user)
+    all_requests = FriendRequest.objects.filter(to_user=user)
+
+    return render(request, 'core_templates/friends.html', {'all_requests': all_requests,})
 
 @login_required(login_url='login')
-def recieve_friend_request(request, requestID):
-    friend_request = FriendRequest.objects.get(id=requestID)
+def recieve_friend_request(request, pk):
+    user_profile = Profile.objects.get(User.objects.get(username=pk))
 
-    if friend_request.to_user == request.user:
+    friend_request = FriendRequest.objects.get(from_user=user_profile)
+    
+    if request.method == 'POST':
         friend_request.to_user.friends.add(friend_request.from_user)
         friend_request.from_user.friends.add(friend_request.to_user)
         friend_request.delete()
         messages.info(request, 'Friend request accepted!')
+
 
     return render(request, 'core_templates/friends.html')
     
