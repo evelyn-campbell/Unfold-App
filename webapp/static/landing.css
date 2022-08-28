@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: arial, sans-serif;
+}
+
+.ribbon {
+    overflow: hidden;
+    background-color: #FACCFF;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.main {
+    margin: 25px;
+    font-family: sans-serif;
+}
+
+.signup {
+    height: 100px;
+}
+
+.awesome:hover {
+    background-color: #c9b0cc;
+}
+
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 329px;
+    height: 56px;
+    text-align: center;
+    border: 0px;
+    font-weight: normal;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.awesome {
+    background-color: #fcfcfc;
+    outline: #000000 solid 2px;
+    color: #000000;
+    border-radius: 6px;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    margin-top: 0px;
+}
+
+.textlol {
+    text-align: center;
+    color: #312540;
+}

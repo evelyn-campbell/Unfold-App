@@ -1,18 +1,39 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Technova Site</title>
+    <link rel="stylesheet" href="{% static 'landing.css'%}" />
+    <style>
+      body {
+        background-image: url("{% static 'background.png'%}");
+      }
+
+      .signupbutton {
+        background-image: url("{% static 'signup.png'%}");
+        background-size: 329px 114px;
+        width: 329px;
+        height: 114px;
+        background-color: rgba(76, 175, 80, 0);
+      } 
+    </style>
   </head>
   <body>
+    <div class="ribbon">
+      <img src="{% static 'icon.png'%}" alt="icon" class="icon">
+      <img src="{% static 'logo.png'%}" alt="Unfold" class="logo">
+    </div> 
     <div class="main">
-      <h1>WELCOME TO SUPER COOL EPIC WEBSITE!!</h1>
+      <h1 class="textlol">Unfold Your Emotions</h1>
+      <p class="textlol">unfold is a revolutionary awesome thing that you should totally think is awesome. holy shoot unfold is so awesome we're gonna win this hackathon like it's nothing omg.</p>
       <div class="signup">
         <form action="/signup/">
-          <button type="submit">Create Account</button>
+          <button type="submit" class="signupbutton"></button>
         </form>
-        <h3>Already have an account?</h3>
+        <h3 class="textlol">Already have an account?</h3> 
         <form action="/login/">
-          <button type="submit">Login</button>
+          <button type="submit" class="awesome">Login</button>
         </form>
       </div>
     </div>
