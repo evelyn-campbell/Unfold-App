@@ -8,6 +8,14 @@
       <h1>Profile</h1>
       <h4>Profile pic goes here</h4>
       <h2>{{ user_profile.user.username }}</h2>
+
+      {% for message in messages%}
+        <h4>{{message}}</h4>
+      {% endfor %}
+      <form action="" method="POST">
+        <button type="submit" name="friend_request">Add Friend</button><br /><br />
+      </form>
+
       <div class="signup">
         <form action="/dashboard/">
           <button type="submit">DASHBOARD</button>

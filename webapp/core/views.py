@@ -87,7 +87,26 @@ def other_profile(request, pk):
         'user_profile': user_profile,
     }
 
-    return render(request, 'core_templates/other_profile.html', context)
+    if request.method == 'POST':
+        # necessary? |
+        #            V
+        # friend_request = request.POST['friend_request']
+
+        from_user = request.user
+        to_user = User.objects.get(id=userID)
+        friend_request, request_created = FriendRequest.objects.get_or_create(from_user=from_user, to_user=to_user)
+
+        if request_created:
+
+            messages.info(request, 'Friend request sent :)')
+            return redirect('other_profile')
+        else:
+
+            messages.info(request, 'Friend request already sent.')
+            return redirect('other_profile')
+
+    else:
+        return render(request, 'core_templates/other_profile.html', context)
 
 @login_required(login_url='login')
 def settings(request):
@@ -100,7 +119,7 @@ def settings(request):
         # change username
         if User.objects.filter(username=new_username).exists():
             messages.info(request, 'Username already exists!')
-            return redirect('edit_profile')
+            return redirect('settings')
         elif len(new_username) > 0:
             user_inst.username = new_username
             user_inst.save()
@@ -113,12 +132,12 @@ def settings(request):
             return redirect('login')
         elif len(new_password) > 0:
             messages.info(request, 'Passwords do not match.')
-            return redirect('edit_profile')
+            return redirect('settings')
             
         messages.info(request, 'Profile saved.')
-        return redirect('edit_profile')
+        return redirect('settings')
     else:
-        return render(request, 'core_templates/edit_profile.html')
+        return render(request, 'core_templates/settings.html')
 
 @login_required(login_url='login')
 def dashboard(request):
