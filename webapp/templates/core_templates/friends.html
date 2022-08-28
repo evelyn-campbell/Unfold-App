@@ -7,9 +7,21 @@
     <input type="text" name="username" placeholder="Search for friend...">&nbsp;
     <button type="submit">Enter</button><br /><br />
 
+    <h2>Friend Requests</h2>
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% for request in friend_request %}
+        <h3>{{ request.from_user }}</h3>
+        <a href="/friends/request_accepted/{{ request.id }}/">Accept Request</a>
+        {{ message }}
+      {% endfor %}
+    </form>
+
     <h2>Your Friends</h2>
     <h3>
-    <!--friends go here, just loop through them with templating or whatever -->
+      {% for friend in request.user.friends.all %}
+        {{ friend.username }}
+      {% endfor %}
     </h3>
 
     <div class="signup">

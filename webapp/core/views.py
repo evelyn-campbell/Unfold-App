@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile, Status
+from .models import Profile, Status, FriendRequest
 
 # continue similarly for each page
 def home(request):
@@ -92,16 +92,14 @@ def other_profile(request, pk):
         #            V
         # friend_request = request.POST['friend_request']
 
-        from_user = request.user
-        to_user = User.objects.get(id=userID)
+        from_user = Profile.objects.get(user=request.user)
+        to_user = Profile.objects.get(user=user_object)
         friend_request, request_created = FriendRequest.objects.get_or_create(from_user=from_user, to_user=to_user)
 
         if request_created:
-
             messages.info(request, 'Friend request sent :)')
             return redirect('other_profile')
         else:
-
             messages.info(request, 'Friend request already sent.')
             return redirect('other_profile')
 
@@ -164,4 +162,17 @@ def groups(request):
 
 @login_required(login_url='login')
 def friends(request):
+
+    return render(request, 'core_templates/friends.html')
+
+@login_required(login_url='login')
+def recieve_friend_request(request, requestID):
+    friend_request = FriendRequest.objects.get(id=requestID)
+
+    if friend_request.to_user == request.user:
+        friend_request.to_user.friends.add(friend_request.from_user)
+        friend_request.from_user.friends.add(friend_request.to_user)
+        friend_request.delete()
+        messages.info(request, 'Friend request accepted!')
+    
     return render(request, 'core_templates/friends.html')
