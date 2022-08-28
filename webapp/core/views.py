@@ -83,7 +83,7 @@ def edit_profile(request):
 
         # change username
         if User.objects.filter(username=new_username).exists():
-            print('Username already exists!')
+            messages.info(request, 'Username already exists!')
             return redirect('edit_profile')
         elif len(new_username) > 0:
             user_inst.username = new_username
@@ -95,11 +95,11 @@ def edit_profile(request):
             user_inst.save()
             messages.info(request, 'Password updated. Please login again.')
             return redirect('login')
-        else:
-            print('Passwords do not match.')
+        elif len(new_password) > 0:
+            messages.info(request, 'Passwords do not match.')
             return redirect('edit_profile')
             
-        print('Profile saved.')
+        messages.info(request, 'Profile saved.')
         return redirect('edit_profile')
     else:
         return render(request, 'core_templates/edit_profile.html')

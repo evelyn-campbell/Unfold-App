@@ -7,7 +7,11 @@
     <div class="main">
       <h1>Edit Profile</h1>
       <div class="login">
-
+        <div>
+          {% for message in messages%}
+          <h4>{{message}}</h4>
+          {% endfor %}
+        </div>
         <form action="" method="POST">
           {% csrf_token %}
           <h3>Change Username</h3>
