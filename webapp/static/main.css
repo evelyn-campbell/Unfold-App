@@ -21,6 +21,12 @@ h4 {
   color: #D5B9B2;
   font-weight: normal;
 }
+h5 {
+  font-size: 24px;
+  color: #A26769;
+  font-weight: normal;
+  margin: 0px;
+}
 body {
   margin: auto;
   margin: 25px;
@@ -94,6 +100,19 @@ li {
   width: 850px;
   text-align: left;
   margin: auto;
-  padding: 70px;
+  padding: 30px;
   border-radius: 9px;
+}
+textarea {
+  background-color: #D5B9B2;
+  border: none;
+  font-size: 24px;
+  color: #674243;
+  width: 850px;
+  resize: none;
+}
+.mood {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
 }
