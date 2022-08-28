@@ -9,7 +9,7 @@ class Profile(models.Model):
     account_id = models.IntegerField()
     
     # profile info
-    avatar = models.ImageField(upload_to='profile_pictures', default='default.jpg')
+    avatar = models.ImageField(upload_to='profile_pictures', default='default.png')
     private = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
