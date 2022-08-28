@@ -149,6 +149,8 @@ def upload_status(request):
         message = request.POST['message']
         new_status = Status.objects.create(user=user, mood=mood, message=message)
         new_status.save()
+        new_status.mood_icon = new_status.get_mood_icon(mood)
+        new_status.save()
         return redirect('dashboard')
     else:
         return render(request, 'core_templates/dashboard.html')

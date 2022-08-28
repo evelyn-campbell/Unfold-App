@@ -86,7 +86,7 @@
       {% for status in statuses %}
       <div class="block">
         <div style="display: inline-block; height: 50px;">
-          <img src="{% static 'happy.png'%}" class="status" style="float: left; width: 50px; height: 50px;"/>
+          <img src="{{status.mood_icon.url}}" class="status" style="float: left; width: 50px; height: 50px;"/>
           <h4 style="float: right; margin-top: 10px; margin-left: 10px;">{{status.user}}</h4>
         </div>
         <h5>{{status.message}}</h5>
