@@ -80,10 +80,10 @@
             name="message"
             placeholder="How are you feeling?"
           ></textarea>
-          <button type="button" class="happy" onclick="select_mood('0')"> </button>
-          <button type="button" class="neutral" onclick="select_mood('1')"> </button>
-          <button type="button" class="sad" onclick="select_mood('2')"> </button>
-          <button type="button" class="anxious" onclick="select_mood('3')"> </button>
+          <button type="button" class="neutral" onclick="select_mood('0')"> </button>
+          <button type="button" class="sad" onclick="select_mood('1')"> </button>
+          <button type="button" class="anxious" onclick="select_mood('2')"> </button>
+          <button type="button" class="happy" onclick="select_mood('3')"> </button>
           <button type="button" class="angry" onclick="select_mood('4')"> </button>
           <button type="submit" style="float:right">Post</button>
           <input type="hidden" name="mood" value="0"></input>
@@ -93,7 +93,11 @@
       {% for status in statuses %}
       <div class="block">
         <div style="display: inline-block; height: 50px;">
+<<<<<<< HEAD
           <img src="{% static 'happy.png'%}" class="status" style="float: left; width: 50px; height: 50px;"/>
+=======
+          <img src="{{status.mood_icon.url}}"style="float: left; width: 50px; height: 50px;"/>
+>>>>>>> 2ce65e0 (they r too happy)
           <h4 style="float: right; margin-top: 10px; margin-left: 10px;">{{status.user}}</h4>
         </div>
         <h5>{{status.message}}</h5>

@@ -32,13 +32,13 @@ class Status(models.Model):
     user = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     mood = models.IntegerField(default=0)
-    mood_icon = models.ImageField(upload_to='mood_pictures', default='happy.png')
+    mood_icon = models.ImageField(upload_to='mood_pictures', default='neutral.png')
     message = models.TextField(max_length=500)
 
     def __str__(self):
         return self.user
 
     def get_mood_icon(self, mood):
-        mood_to_icon = {'0': 'happy.png', '1': 'neutral.png', '2': 'sad.png', '3': 'anxious.png', '4': 'angry.png'}
-        mood_icon = models.ImageField(upload_to='mood_pictures', default=mood_to_icon[str(mood)])
+        mood_to_icon = {'0': 'neutral.png', '1': 'sad.png', '2': 'anxious.png', '3': 'happy.png', '4': 'angry.png'}
+        mood_icon = models.ImageField(mood_to_icon[str(mood)])
         return mood_icon
